@@ -22,6 +22,11 @@ type AdminResponse struct {
 	Username string `json:"username"`
 	Token    uint   `json:"token"`
 }
+type AdminUpdatePassword struct {
+	ID              uint   `json:"id"`
+	CurrentPassword string `json:"currentPassword"`
+	NewPassword     string `json:"newPassword"`
+}
 
 func (a *Admin) SaveToDb() (*Admin, error) {
 	a.Role = "ADMIN"
@@ -50,6 +55,15 @@ func (a *Admin) SignIn(admin Admin) (*Admin, error) {
 // find by userID
 func (a *Admin) FindAdminByUserId(userId uint) (*Admin, error) {
 	err := db.Debug().Where("id = ?", userId).Take(&a).Error
+	if err != nil {
+		return &Admin{}, err
+	}
+	return a, nil
+}
+
+// update password by userid
+func (a *Admin) UpdatePassword(userId uint, password string) (*Admin, error) {
+	err := db.Debug().Model(&Admin{}).Where("id = ?", userId).Update("password", password).Error
 	if err != nil {
 		return &Admin{}, err
 	}

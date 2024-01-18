@@ -54,3 +54,25 @@ func AdminLogin(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, adminResp)
 }
+
+func AdminUpdatePassword(c *gin.Context) {
+	admin := models.AdminUpdatePassword{}
+	addmin := models.Admin{}
+	c.BindJSON(&admin)
+	currentAdmin, err := addmin.FindAdminByUserId(admin.ID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": err.Error()})
+		return
+	}
+	if currentAdmin.Password != admin.CurrentPassword {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "Şifre hatalı"})
+		return
+	}
+	aadmin, err := addmin.UpdatePassword(admin.ID, admin.NewPassword)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": err.Error()})
+		return
+	}
+	addmin.Password = ""
+	c.JSON(http.StatusOK, aadmin)
+}

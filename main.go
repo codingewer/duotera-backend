@@ -26,6 +26,7 @@ func main() {
 	admin := router.Group("/admin")
 	admin.POST("/register", controllers.CreateUser)
 	admin.POST("/login", controllers.AdminLogin)
+	admin.PUT("/update-password", controllers.AdminUpdatePassword)
 
 	product := router.Group("/product")
 	product.GET("/byid/:id", controllers.GetProduct)
