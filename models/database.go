@@ -10,9 +10,9 @@ import (
 //postgres://studblogff_user:gEIUkjxgIcqo38tp3T7dYc37pmyqIOID@dpg-ciudbf5gkuvoig806uhg-a.oregon-postgres.render.com/studblogff
 
 const (
-	host     = "dpg-cmgmjjocmk4c73esu010-a.oregon-postgres.render.com"
+	host     = "localhost"
 	port     = 5432
-	user     = "duotera_user"
+	user     = "postgres"
 	password = "CePxZSsHoN0PTmJIy2ZtzrCLdmknLCzL"
 	dbname   = "duotera"
 )
