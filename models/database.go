@@ -7,8 +7,6 @@ import (
 	_ "github.com/lib/pq"
 )
 
-//postgres://studblogff_user:gEIUkjxgIcqo38tp3T7dYc37pmyqIOID@dpg-ciudbf5gkuvoig806uhg-a.oregon-postgres.render.com/studblogff
-
 const (
 	host     = "localhost"
 	port     = 5432
@@ -45,6 +43,9 @@ func init() {
 		Phone:               "0555555555",
 		Email:               "XXXXXXXXXXXXXXXX",
 		Address:             "XXXXXXXXXXXXXXXX",
+		Instagram:           "https://www.instagram.com/duotera.inc/",
+		Facebook:            "https://facebook.com",
+		Youtube:             "https://www.youtube.com/@duotera",
 		MarkerUrl:           "https://www.github.com",
 		HomeVideo:           "https://res.cloudinary.com/ddeatrwxs/video/upload/v1704919064/assets/Backgrounds/s2nvw7oakera1sqq3zwc.webm",
 		HomeTitle:           "Model Y Accessories",

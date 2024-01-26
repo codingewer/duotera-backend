@@ -10,6 +10,9 @@ type Detail struct {
 	Email               string `json:"email"`
 	Address             string `json:"address"`
 	MarkerUrl           string `json:"markerurl"`
+	Instagram           string `json:"instagram"`
+	Facebook            string `json:"facebook"`
+	Youtube             string `json:"youtube"`
 	HomeVideo           string `json:"homeVideo"`
 	ContactPageImageUrl string `json:"contactPageImageUrl"`
 	HomeSubTitle        string `json:"homeSubTitle"`
